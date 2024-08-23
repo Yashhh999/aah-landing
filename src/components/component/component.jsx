@@ -93,7 +93,7 @@ export default function Component() {
                 <p
                   className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Arcade Alliance Hosting offers a range of hosting solutions to meet your specific needs, whether
-                  you're running a Discord bot, a virtual private server, or a website.
+                  you&apos;re running a Discord bot, a virtual private server, or a website.
                 </p>
               </div>
             </div>
