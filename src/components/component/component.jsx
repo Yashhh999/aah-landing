@@ -281,8 +281,8 @@ export default function Component() {
                 <div className="grid gap-1">
                   <h3 className="text-xl font-bold text-slate-200">Reliable and Scalable</h3>
                   <p className="text-muted-foreground">
-                    "Arcade Alliance Hosting has been a game-changer for my <br /> Discord bot. The reliability and
-                    scalability have been<br /> fantastic, and the support team is always there to help."
+                  &quot;Arcade Alliance Hosting has been a game-changer for my <br /> Discord bot. The reliability and
+                    scalability have been<br /> fantastic, and the support team is always there to help.&quot;
                   </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Avatar>

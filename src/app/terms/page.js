@@ -65,7 +65,7 @@ export default function Page() {
                 <h1 className="text-4xl font-bold text-center text-white mt-5">Terms of Service</h1>
 
                 <h1 className="text-lg font-bold mt-8 text-white bg-navbar mx-10 p-4 rounded-lg">Terms of Service
-These Terms of Service ("Terms") govern your use of the services provided by Arcade Alliance Hosting, an Indian government-registered hosting company. By using our services, you agree to be bound by these Terms.<br/>
+These Terms of Service (&quot;Terms&quot;) govern your use of the services provided by Arcade Alliance Hosting, an Indian government-registered hosting company. By using our services, you agree to be bound by these Terms.<br/>
 
 1. Service Usage: Our services include VPS hosting, web hosting, mail server hosting, WordPress hosting, and Discord bot hosting. You agree to use these services in compliance with all applicable laws and regulations.<br/>
 
