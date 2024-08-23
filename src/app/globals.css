@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import "@madzadev/image-slider/dist/index.css";
+@import "react-responsive-carousel/lib/styles/carousel.min.css";
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
 
 
 @layer base {
@@ -61,6 +65,9 @@
   }
 }
 
+
+
+
 @layer base {
   * {
     @apply border-border;
@@ -105,4 +112,26 @@
 
 .scale-up {
   animation: scaleUp 1s ease-in-out;
+}
+
+/* ImageSlider.module.css */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-image {
+  animation: slide-animation 1s ease-in-out;
+}
+
+@keyframes slide-animation {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

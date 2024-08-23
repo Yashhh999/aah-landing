@@ -1,130 +1,89 @@
+"use client"
 import Link from "next/link"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Image } from "next/image"
 import ImageSlider from "./ImageSlider"
-export function Component() {
-  
+import { useState } from "react"
+import Footer from "./footer"
+
+export default function Component() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const makeMenuOpen = () => setIsMenuOpen(true);
   return (
-    (<div className="flex flex-col min-h-[100dvh]">
-      <header className="fixed top-0 left-0 w-full px-4 lg:px-6 h-14 flex items-center bg-navbar text-white z-50">
-        <Link href="#" className="flex items-center justify-center" prefetch={false}>
-          <img src="/logo.png" width="40" height="40" alt="Arcade Alliance" />
-          <span className="text-xl font-bold">Arcade Alliance Hosting</span>
-        </Link>
+    (<div className="flex flex-col min-h-[100dvh] w-screen overflow-hidden">
+              
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="ml-auto rounded-full sm:hidden">
-              <MenuIcon className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation</span>
-            </Button>
-          </SheetTrigger>
-    <SheetContent side="right" className="sm:hidden">
-      <nav className="grid gap-4 text-lg font-medium">
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4 text-blue-200"
-          prefetch={false}>
-          Discord Hosting
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4 text-blue-200"
-          prefetch={false}>
-          VPS Hosting
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4 text-blue-200"
-          prefetch={false}>
-          Web Hosting
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4 text-blue-200"
-          prefetch={false}>
-          Pricing
-        </Link>
-        <Link
-          href="#"
-          className="text-sm font-medium hover:underline underline-offset-4 text-blue-200"
-          prefetch={false}>
-          About
-        </Link>
-      </nav>
-    </SheetContent>
-  </Sheet>
-
-  <nav className="ml-auto flex gap-4 sm:gap-6 hidden sm:flex">
-    <Link
-      href="#"
-      className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-      prefetch={false}>
-      Discord Hosting
-    </Link>
-    <Link
-      href="#"
-      className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-      prefetch={false}>
-      VPS Hosting
-    </Link>
-    <Link
-      href="#"
-      className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-      prefetch={false}>
-      Web Hosting
-    </Link>
-    <Link
-      href="#"
-      className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-      prefetch={false}>
-      Pricing
-    </Link>
-    <Link
-      href="#"
-      className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-      prefetch={false}>
-      About
-    </Link>
-  </nav>
-</header>
-
-      <main className="flex-1">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32 border-y">
-          <div className="px-4 md:px-6 space-y-10 xl:space-y-16">
-            <div
-              className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
-              <div>
-                <h1
-                  className="lg:leading-tighter text-white text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                 Empowering Digital Horizons with Seamless Hosting Solutions
-                </h1>
-                <p className="mx-auto max-w-[700px] mt-5 text-muted-foreground md:text-xl">
-                  Arcade Alliance Hosting offers a range of hosting solutions to meet your needs, from Discord hosting
-                  to VPS and web hosting. Experience reliable, scalable, and secure hosting for your online projects.
-                </p>
-                <div className="space-x-4 mt-6 mb-10">
-                  <Link
-                    href="#"
-                    className="inline-flex h-9 items-center justify-center rounded-md bg-purple-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-purple-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}>
-                    Get Started
-                  </Link>
-                  <Link
-                    href="#"
-                    className="inline-flex h-9 text-black items-center justify-center rounded-md border border-input bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}>
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-              <ImageSlider />
-            </div>
+      {isMenuOpen && (
+        <div className="absolute top-14 left-0 w-full bg-navbar z-40">
+          <div className="container mx-auto p-4">
+            <ul className="font-medium flex flex-col space-y-4">
+              <li>
+                <Link href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
+                  Discord Hosting
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  VPS Hosting
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  Web Hosting
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  About
+                </Link>
+              </li>
+            </ul>
           </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        </div>
+      )}
+
+      <main className="flex-1 pt-14 max-w-screen">
+      <section className="w-screen pt-12 md:pt-24 lg:pt-32 border-y">
+  <div className="px-4 md:px-6 space-y-10 xl:space-y-16">
+    <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <h1 className="lg:leading-tighter text-white text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+          Empowering Digital Horizons with Seamless Hosting Solutions
+        </h1>
+        <p className="mx-auto max-w-[700px] mt-5 text-muted-foreground md:text-xl">
+          Arcade Alliance Hosting offers a range of hosting solutions to meet your needs, from Discord hosting to VPS and web hosting. Experience reliable, scalable, and secure hosting for your online projects.
+        </p>
+        <div className="space-x-4 mt-6 mb-10">
+          <Link
+            href="#"
+            className="inline-flex h-9 items-center justify-center rounded-md bg-purple-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-purple-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            prefetch={false}
+          >
+            Get Started
+          </Link>
+          <Link
+            href="#"
+            className="inline-flex h-9 text-black items-center justify-center rounded-md border border-input bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            prefetch={false}
+          >
+            Learn More
+          </Link>
+        </div>
+      </div>
+      <div className="lg:w-full lg:h-full w-80 h-64 justify-center items-center flex">
+        <ImageSlider />
+      </div>
+    </div>
+  </div>
+</section>
+        <section className="w-screen py-12 md:py-24 lg:py-32 lg:ml-16">
           <div className="container space-y-12 px-4 md:px-6">
             <div
               className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -179,7 +138,98 @@ export function Component() {
               </div>
             </div>
           </div>
+
         </section>
+
+        <section className="py-12 mb-20 bg-navbar text-white mx-10 p-1 rounded-xl">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <span className="inline-block rounded-lg bg-muted px-3 py-1 text-sm bg-slate-300 text-black">
+                Incredibly features
+              </span>
+              <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+                Premium Hosting Server
+              </h2>
+            </div>
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+              <div className="text-center lg:text-left">
+              <img src="/1.png" alt="1" width={200} height={24} className="w-16 h-16 mx-auto lg:mx-0 mb-5" />
+
+                <h3 className="text-xl font-semibold">Super Quick Setup</h3>
+                <p className="mt-2 text-gray-400">
+                  DArcade Alliance Hosting ensures a super quick setup with instant
+                  provisioning, getting your services up and running in minutes.
+                </p>
+              </div>
+
+
+              <div className="text-center lg:text-left">
+              <img src="/2.png" alt="1" width={200} height={24} className="w-16 h-16 mx-auto lg:mx-0 mb-5" />                <h3 className="text-xl font-semibold">Premium Hardware</h3>
+                <p className="mt-2 text-gray-400">
+                  Arcade Alliance Hosting utilizes premium hardware, delivering
+                  top-tier performance, reliability, and speed for all your hosting
+                  needs.
+                </p>
+              </div>
+
+
+              <div className="text-center lg:text-left">
+              <img src="/3.png" alt="1" width={200} height={24} className="w-16 h-16 mx-auto lg:mx-0 mb-5" />                <h3 className="text-xl font-semibold">DDoS Protection</h3>
+                <p className="mt-2 text-gray-400">
+                  Arcade Alliance Hosting provides powerful DDoS protection,
+                  ensuring your services stay online and secure against all types of
+                  attacks.
+                </p>
+              </div>
+
+
+              <div className="text-center lg:text-left">
+              <img src="/4.png" alt="1" width={200} height={24} className="w-16 h-16 mx-auto lg:mx-0 mb-5" />                <h3 className="text-xl font-semibold">Fast Support</h3>
+                <p className="mt-2 text-gray-400">
+                  Arcade Alliance Hosting offers fast customer support, available
+                  24/7, to promptly resolve any issues and keep your services
+                  running smoothly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-6 text-white my-20">
+  <div className="container mx-auto px-4">
+    <div className="text-center">
+      <span className="inline-block rounded-lg bg-muted px-3 py-1 text-sm bg-slate-300 text-black">
+        Payment Methods
+      </span>
+      <h3 className="mt-2 text-2xl font-bold text-gray-200 sm:text-3xl">
+        We accept
+      </h3>
+    </div>
+    <div className="mt-6 flex justify-center space-x-4 flex-wrap">
+      <div className="p-2 bg-gray-800 rounded-lg">
+        <img src="/visa.webp" alt="Visa" className="h-12 w-auto" />
+      </div>
+
+      <div className="p-2 bg-gray-800 rounded-lg">
+        <img src="/mastercard.webp" alt="MasterCard" className="h-12 w-auto" />
+      </div>
+
+      <div className="p-3 bg-gray-800 rounded-lg">
+        <img src="/paypal.webp" alt="PayPal" className="h-12 w-auto" />
+      </div>
+
+      <div className="p-4  bg-gray-800 rounded-lg mt-4 lg:mt-0">
+        <img src="/rp.png" alt="Razor Pay" className="h-12 w-auto" />
+      </div>
+
+      <div className="p-2 bg-gray-800 rounded-lg mt-4 lg:mt-0">
+        <img src="/gpay.png" alt="Google Pay" className="h-12 w-auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
         <section className="mx-10 bg-navbar py-12 md:py-24 lg:py-32 rounded-xl bg-muted">
           <div
             className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
@@ -231,8 +281,8 @@ export function Component() {
                 <div className="grid gap-1">
                   <h3 className="text-xl font-bold text-slate-200">Reliable and Scalable</h3>
                   <p className="text-muted-foreground">
-                    "Arcade Alliance Hosting has been a game-changer for my <br/> Discord bot. The reliability and
-                    scalability have been<br/> fantastic, and the support team is always there to help."
+                    "Arcade Alliance Hosting has been a game-changer for my <br /> Discord bot. The reliability and
+                    scalability have been<br /> fantastic, and the support team is always there to help."
                   </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Avatar>
@@ -247,7 +297,7 @@ export function Component() {
           </div>
         </section>
         <section className="py-12 md:py-24 lg:py-32 bg-navbar mx-10 mb-10 rounded-xl">
-          <div 
+          <div
             className="container grid items-center gap-10 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-4">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm bg-slate-300">Performance</div>
@@ -268,7 +318,7 @@ export function Component() {
             </div>
 
             <div className="flex flex-col items-start space-y-4 m-5">
-              
+
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm bg-slate-300">Security</div>
               <h2
                 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] text-white">
@@ -290,15 +340,7 @@ export function Component() {
           </div>
         </section>
       </main>
-      <footer
-        className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-footer text-white">
-        <p className="text-xs">&copy; 2024 Arcade Alliance. All rights reserved.</p>
-        <div className="mx-20">
-        <Link href="/" className="text-xs">Terms of Service</Link>
-        <Link href="/" className="text-xs mx-5">Privacy Policy</Link>
-        </div>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-" />
-      </footer>
+      
     </div>)
   );
 }
