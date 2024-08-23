@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Arcade Alliance Hosting",
   description: "Empowering Digital Horizons with Seamless Hosting Solutions",
- image:"/logo.png"
+ image:"/thumbnail.gif"
 };
 
 export default function RootLayout({ children }) {
