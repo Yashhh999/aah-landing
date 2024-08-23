@@ -286,7 +286,7 @@ export default function Component() {
                   </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Avatar>
-                      <AvatarImage src="/placeholder-user.jpg" />
+                      <AvatarImage src="/placeholder-avatar.png" />
                       <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <div>John Doe, Discord Bot Owner</div>
