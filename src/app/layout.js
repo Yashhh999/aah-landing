@@ -25,12 +25,14 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:image" content={metadata.image} />
-        <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
         <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/logo.png" />
-
+<meta property="og:thumbnail" content={metadata.image} />
+<meta property="og:thumbnail:width" content="1280" />
+<meta property="og:thumbnail:height" content="720" />
         <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={metadata.title} />
   <meta name="twitter:description" content={metadata.description} />
