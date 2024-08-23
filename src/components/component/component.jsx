@@ -158,7 +158,7 @@ export default function Component() {
 
                 <h3 className="text-xl font-semibold">Super Quick Setup</h3>
                 <p className="mt-2 text-gray-400">
-                  DArcade Alliance Hosting ensures a super quick setup with instant
+                  Arcade Alliance Hosting ensures a super quick setup with instant
                   provisioning, getting your services up and running in minutes.
                 </p>
               </div>
